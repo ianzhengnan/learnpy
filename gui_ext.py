@@ -1,0 +1,26 @@
+
+from tkinter import *
+import tkinter.messagebox
+
+class Application(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self,master)
+        self.pack()
+        self.createWidgets()
+
+    def createWidgets(self):
+        self.nameInput = Entry(self)
+        self.nameInput.pack()
+        self.quitButton = Button(self, text = 'Hello', command = self.hello)
+        self.quitButton.pack()
+
+    def hello(self):
+        name = self.nameInput.get() or 'world'
+        tkinter.messagebox.showinfo('Message', 'Hello, %s' % name)
+
+
+app = Application()
+app.master.title('Hello Python')
+app.master.maxsize(1000, 400)
+app.master.minsize(400, 300)
+app.mainloop()
