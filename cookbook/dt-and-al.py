@@ -187,28 +187,43 @@
 
 #---------------------------------------------------------------------------------------------
 
-from operator import itemgetter
-from itertools import groupby
+# from operator import itemgetter
+# from itertools import groupby
 
-rows = [
-    {'address': '5412 N CLARK', 'date': '07/01/2012'},
-    {'address': '5148 N CLARK', 'date': '07/04/2012'},
-    {'address': '5800 E 58TH', 'date': '07/02/2012'},
-    {'address': '2122 N CLARK', 'date': '07/03/2012'},
-    {'address': '5645 N RAVENSWOOD', 'date': '07/02/2012'},
-    {'address': '1060 W ADDISON', 'date': '07/02/2012'},
-    {'address': '4801 N BROADWAY', 'date': '07/01/2012'},
-    {'address': '1039 W GRANVILLE', 'date': '07/04/2012'},
-]
-
-
-rows.sort(key=itemgetter('date'))
-
-for date, items in groupby(rows, key=itemgetter('date')):
-    print(date)
-    for i in items:
-        print('    ', i)
-
-print(groupby(rows, key=itemgetter('date')))
+# rows = [
+#     {'address': '5412 N CLARK', 'date': '07/01/2012'},
+#     {'address': '5148 N CLARK', 'date': '07/04/2012'},
+#     {'address': '5800 E 58TH', 'date': '07/02/2012'},
+#     {'address': '2122 N CLARK', 'date': '07/03/2012'},
+#     {'address': '5645 N RAVENSWOOD', 'date': '07/02/2012'},
+#     {'address': '1060 W ADDISON', 'date': '07/02/2012'},
+#     {'address': '4801 N BROADWAY', 'date': '07/01/2012'},
+#     {'address': '1039 W GRANVILLE', 'date': '07/04/2012'},
+# ]
 
 
+# rows.sort(key=itemgetter('date'))
+
+# for date, items in groupby(rows, key=itemgetter('date')):
+#     print(date)
+#     for i in items:
+#         print('    ', i)
+
+# print(groupby(rows, key=itemgetter('date')))
+
+
+#---------------------------------------------------------------------------------------------
+
+prices = {
+'ACME': 45.23,
+'AAPL': 612.78,
+'IBM': 205.55,
+'HPQ': 37.20,
+'FB': 10.75
+}
+
+new_prices = {key:value for key, value in prices.items() if value > 200}
+tech_stock = {'AAPL', 'FB', 'IBM', 'MSFT'}
+new_prices2 = {key:value for key, value in prices.items() if key in tech_stock}
+
+print(new_prices2)
