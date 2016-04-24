@@ -227,3 +227,5 @@ tech_stock = {'AAPL', 'FB', 'IBM', 'MSFT'}
 new_prices2 = {key:value for key, value in prices.items() if key in tech_stock}
 
 print(new_prices2)
+
+
