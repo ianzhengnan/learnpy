@@ -34,13 +34,46 @@ print(sum([1,2,3,4,5]))
 
 # 练习：
 
+#1
 def normalize(name):
 	return name[0].upper() + name[1:].lower()
 
 print(list(map(normalize, ['adAm', 'lISa', 'iAn'])))
 
+#2
 def prod(l):
 	return reduce(lambda x, y: x * y, l)
 
 print(prod([1,2,3]))
+
+# lambda返回一个函数，可以直接赋值给变量，然后通过变量调用此函数
+# f = lambda x, y: x + y 
+
+# <function <lambda> at 0x7fa5ab8e2950>
+# >>> f(1,2)
+
+#3
+def str2float(s):
+
+	# check pointer count
+	if s.count('.') > 1:
+		raise ValueError('invalid value: %s' % s) 
+
+	# get pointer
+	position = s.find('.')
+	# s = s[:position] + s[position + 1:] 
+	s = s.replace('.', '')
+
+	def str2num(char):
+		return {'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}[char]
+
+	def calc(x, y):
+		return x * 10 + y
+
+	result = reduce(calc, map(str2num, s)) / 10 ** (len(s) - position)
+
+	return result
+
+print(str2float('123.4'))
+
 
